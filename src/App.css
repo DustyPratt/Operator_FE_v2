@@ -1,38 +1,59 @@
-.App {
+@media (min-width: 576px) {
+  :root {
+    --size-divisor: 2;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --size-divisor: 1.5;
+  }
+}
+@media (min-width: 992px) { 
+  :root {
+    --size-divisor: 1;
+  }
+}
+@media (min-width: 1200px) { 
+  :root {
+    --size-divisor: .67;
+  }
+}
+
+body {
+  background-image: url("https://i.imgur.com/T6ZRkJ1.png");
+}
+
+border {
+  border-color: rgb(231, 215, 69);
+}
+
+h1 {
   text-align: center;
+  font-size: 55px;
+  font-family: 'Product Sans', sans-serif;
+  color: rgb(57, 55, 55);
+  flex-shrink: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Product Sans', sans-serif;
+  color: rgb(57, 55, 55);
+  flex-shrink: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
   color: white;
+  flex-shrink: 1;
+  border-color: rgb(246,134,42);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid rgb(69, 64, 64);
+  border-radius: 4px;
+  box-sizing: border-box;
 }
