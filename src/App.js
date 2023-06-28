@@ -21,7 +21,7 @@ function App(props) {
     // State & Other Variables
     ///////////////////////
     // API URL
-    const url = "https://dusty-op-survey-app.herokuapp.com/surveys/"
+    const url = "https://dusty-op-survey-app.herokuapp.com/todos/"
     const [posts, setPosts] = useState([])
 
     const nullComments = {
