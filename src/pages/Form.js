@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import "./Form.css";
 // import { Link } from "react-router-dom";
 
-const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
-  const [formData, setFormData] = useState(initialComments)
+const Form = ({initialTodo, history, handleSubmit, buttonLabel}) => {
+  const [formData, setFormData] = useState(initialTodo)
   
     const input = {
         background: "black",
@@ -15,6 +15,10 @@ const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
 
   // Functions
   const handleChange = (event) => {
+    //const newState = {...formData}
+    //newState[event.target.name] = event.target.value
+    //setFormData(newState)
+    
     setFormData({...formData, [event.target.name]: event.target.value })
   }
 
@@ -42,7 +46,7 @@ const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
                 style={input}
                 type="text"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.answer1}
                 name="answer1"
             />
             <label for="answer2">How likely are you to use Dusty on your future projects?</label>
@@ -50,7 +54,7 @@ const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
                 style={input}
                 type="text"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.answer2}
                 name="answer2"
             />
             <label for="answer3">What alternatives have you considered prior to Dusty</label>
@@ -58,7 +62,7 @@ const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
                 style={input}
                 type="text"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.answer3}
                 name="answer3"
             />
             <label for="answer4">Does Dusty help you achieve your layout goals?</label>
@@ -66,7 +70,7 @@ const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
                 style={input}
                 type="text"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.answer4}
                 name="answer4"
             />
             <label for="answer5">One word to describe Dusty Robotics</label>
@@ -74,7 +78,7 @@ const Form = ({initialComments, history, handleSubmit, buttonLabel}) => {
                 style={input}
                 type="text"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.answer5}
                 name="answer5"
             />
           </div>

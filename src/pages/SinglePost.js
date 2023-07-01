@@ -1,6 +1,6 @@
 
 import React from "react";
-import {Link} from "react-router-dom"
+//import {Link} from "react-router-dom";
 
 const SinglePost = ({posts, match, edit, history}) => {
   const id = parseInt(match.params.id)
@@ -21,16 +21,6 @@ const SinglePost = ({posts, match, edit, history}) => {
   return <div style={div}>
     <h1>{post.subject}</h1>
     <h2>{post.details}</h2>
-    <button onClick={(event) => {
-      edit(post)
-    }}>edit</button>
-    <button onClick={(event) => {
-      deleteComment(post)
-      history.push("/")
-    }}>Delete</button>
-    <Link to="/">
-      <button>Go Back</button>
-    </Link>
   </div>;
 };
 

@@ -1,5 +1,5 @@
 import AllPosts from "./pages/AllPosts";
-//import SinglePost from "./pages/SinglePost";
+import SinglePost from "./pages/SinglePost";
 import Form from "./pages/Form";
 import React, {useState, useEffect} from "react";
 import {Route, Switch, Link} from "react-router-dom";
@@ -21,10 +21,11 @@ function App(props) {
     // State & Other Variables
     ///////////////////////
     // API URL
-    const url = "https://dusty-op-survey-app.herokuapp.com/todos/"
-    const [posts, setPosts] = useState([])
+    const url = "https://dusty-op-survey-app.herokuapp.com/todos/";
 
-    const nullComments = {
+    const [posts, setPosts] = useState([]);
+
+    const nullTodo = {
       answer0: "",
       answer1: "",
       answer2: "",
@@ -33,48 +34,45 @@ function App(props) {
       answer5: "",
     }
 
-    //const [targetComments, setTargetComments] = useState(nullComments)
+    const [targetTodo, setTargetTodo] = useState(nullTodo)
 
     /////////////////
     // Functions
     ////////////////
-    const getComments = async() => {
+    const getTodos = async() => {
       const response = await fetch(url)
       const data = await response.json()
       setPosts(data)
     }
 
-    const addComments = async (newComments) => {
 
-      getComments()
+    const getTargetTodo = (todo) => {
+       setTargetTodo(todo)
+       props.history.push("/edit")
     }
 
-    // const getTargetComments = (comments) => {
-    //   setTargetComments(comments)
-    //   props.history.push("/edit")
-    // }
-    // const updateComments = async (comments) => {
-    //   const response = await fetch(url + comments.id, {
-    //     method: "put",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(comments)
-    //   })
-    //   getComments()
-    // }
+    const addTodos = async (newTodo) => {
+      const response = await fetch(url, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newTodo)
+      })
+      //getTodos()
+    }
 
-    // const deleteComments = async (comments) => {
-    //   const response = await fetch(url + comments.id + "/", {
-    //     method: "delete"
-    //   })
-    //   getComments()
-    // }
+    //const deleteTodo = async (todos) => {
+      // const response = await fetch(url + todos.id + "/", {
+        // method: "delete"
+       //})
+       //getTodos()
+    //}
 
     ////////////////////
     // useEffects
     ////////////////////
-    useEffect(() => {getComments()}, [])
+    useEffect(() => {getTodos()}, [])
     /////////////////
     // Returned JSX
     /////////////////
@@ -95,7 +93,7 @@ function App(props) {
         />
         <Route
           path="/new"
-          render={(rp) => <Form initialComments={nullComments} handleSubmit={addComments} buttonLabel="SUBMIT" {...rp}/>}
+          render={(rp) => <Form initialTodo={nullTodo} handleSubmit={addTodos} buttonLabel="SUBMIT" {...rp}/>}
         />
         </Switch>
     </div>
