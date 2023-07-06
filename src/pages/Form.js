@@ -6,11 +6,11 @@ const Form = ({initialTodo, history, handleSubmit, buttonLabel}) => {
   const [formData, setFormData] = useState(initialTodo)
   
     const input = {
-        background: "black",
-        width: "20%",
-        border: "none",
+        background: "#F7F7F7",
+        width: "50%",
+        border: "black",
         borderBottom: "white",
-        font: "white",
+        font: "black",
     }
 
   // Functions
